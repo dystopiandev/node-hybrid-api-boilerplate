@@ -12,5 +12,11 @@ module.exports = {
     saltRounds: parseInt(process.env.BCRYPT_SALT_ROUNDS),
     sessionSecret: process.env.SESSION_SECRET,
     sessionLifetime: parseInt(process.env.SESSION_LIFETIME)
+  }),
+  redis: Object.freeze({
+    host: process.env.REDIS_HOST,
+    port: parseInt(process.env.REDIS_PORT),
+    pass: process.env.REDIS_PASSWORD,
+    ttl: parseInt(process.env.REDIS_TTL) / 1000
   })
 }

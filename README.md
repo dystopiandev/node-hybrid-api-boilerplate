@@ -5,6 +5,9 @@
 
 Copy ```.env.EXAMPLE``` to ```.env.development``` and adjust as needed.
 
+## Dependencies
+- Redis Server
+
 ## Running
 ```
 # Install dependencies

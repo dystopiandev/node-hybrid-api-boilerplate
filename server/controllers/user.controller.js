@@ -22,7 +22,7 @@ function self (req, res) {
       }
       return res.send({
         success: false,
-        message: 'Operation failed. Unexpected Error.'
+        message: 'Operation failed. Unexpected error.'
       })
     })
 }

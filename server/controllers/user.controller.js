@@ -1,4 +1,4 @@
-const userService = require('../services/user.service')
+const userService = require('../../services/user.service')
 
 function self (req, res) {
   userService.getUserByEmail(req.session.user.email)

@@ -8,10 +8,11 @@ require('dotenv-flow').config({
 module.exports = {
   debug: (process.env.DEBUG === 'true'),
   server: Object.freeze({
-    defaultPort: parseInt(process.env.PORT),
+    port: parseInt(process.env.PORT),
     saltRounds: parseInt(process.env.BCRYPT_SALT_ROUNDS),
     sessionSecret: process.env.SESSION_SECRET,
-    sessionLifetime: parseInt(process.env.SESSION_LIFETIME)
+    sessionLifetime: parseInt(process.env.SESSION_LIFETIME),
+    allowedOrigins: process.env.ALLOWED_ORIGINS.split(',')
   }),
   redis: Object.freeze({
     host: process.env.REDIS_HOST,

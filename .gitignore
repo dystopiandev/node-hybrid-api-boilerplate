@@ -1,4 +1,5 @@
 .env*
+!.env*example
 !.env*EXAMPLE
 .DS_Store
 node_modules/

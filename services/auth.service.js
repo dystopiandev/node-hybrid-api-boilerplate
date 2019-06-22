@@ -1,5 +1,5 @@
-const Users = require('../../db/models').User
-const SimplifiedError = require('../../lib/simplifiedError')
+const Users = require('../db/models').User
+const SimplifiedError = require('../lib/simplifiedError')
 const bcrypt = require('bcrypt')
 
 const authenticate = params => {

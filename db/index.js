@@ -3,18 +3,11 @@ var path = require('path')
 var Sequelize = require('sequelize')
 var basename = path.basename(__filename)
 const modelsDir = path.join(__dirname, 'models')
+const env = process.env.NODE_ENV || 'development'
+const config = require(path.join(__dirname, '/../../config/db.js'))[env]
 const db = {}
 
-const sequelize = new Sequelize('postgres', 'postgres', 'postgres', {
-  host: 'localhost',
-  dialect: 'postgres',
-
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  }
-})
+const sequelize = new Sequelize(config.database, config.username, config.password, config)
 
 fs
   .readdirSync(modelsDir)

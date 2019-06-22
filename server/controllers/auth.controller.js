@@ -1,7 +1,7 @@
 const config = require('../../config')
 const bcrypt = require('bcrypt')
-const authService = require('../services/auth.service')
-const userService = require('../services/user.service')
+const authService = require('../../services/auth.service')
+const userService = require('../../services/user.service')
 
 async function logout (req, res) {
   await req.session.destroy()

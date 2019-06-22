@@ -1,27 +1,31 @@
 require('.')
 
-const config = {
-  dialect: process.env.DB_DIALECT,
+const options = {
   host: process.env.DB_HOST,
-  ports: parseInt(process.env.DB_PORT),
+  port: parseInt(process.env.DB_PORT),
+  database: process.env.DB_DATABASE,
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  logging: (process.env.DEBUG === 'true') ? console.log : false,
+  dialect: process.env.DB_DIALECT,
+  dialectOptions: {
+    collate: 'utf8mb4_general_ci',
+    useUTC: false, // for reading from database
+    dateStrings: true,
+    typeCast: true,
+    timezone: '+00:00'
+  },
   define: {
     underscored: false,
     freezeTableName: true,
     charset: 'utf8mb4',
-    dialectOptions: {
-      collate: 'utf8mb4_general_ci'
-    },
-    timestaps: true
+    timestaps: false
   },
-  sync: { force: true }
+  logging: (process.env.DB_CONSOLE_LOGGING === 'true') ? console.log : false,
+  timezone: '+00:00'
 }
 
 module.exports = {
-  development: config,
-  staging: config,
-  production: config
+  development: options,
+  staging: options,
+  production: options
 }
